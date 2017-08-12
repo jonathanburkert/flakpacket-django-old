@@ -15,5 +15,11 @@ def generate_node_key(address):
         return node_key
 
 
-def validate(address, node_key):
-    return "validate"
+def validate_node_key(address, node_key):
+
+    record = enrolled_nodes.objects.filter(address=address)
+
+    if record and record[0].node_key == node_key:
+        return True
+    else:
+        return False

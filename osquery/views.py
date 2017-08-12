@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .settings import *
 from .osqueryResponses import *
-from .enroll import generate_node_key
+from .enroll import generate_node_key, validate_node_key
 import json
 
 # Create your views here.
@@ -27,14 +27,25 @@ def enroll(request):
     return JsonResponse(response)
 
 
+@csrf_exempt
 def config(request):
-    response = HttpResponse("config")
-    return response
+
+    address = request.META.get('REMOTE_ADDR')
+    data = request.body.decode('utf-8')
+    json_data = json.loads(data)
+    node_key = json_data.get('node_key')
+
+    if not validate_node_key(address, node_key):
+        return JsonResponse(FAILED_ENROLL_RESPONSE)
+
+    return JsonResponse(TEST_SCHED_QUERY)
 
 
+@csrf_exempt
 def logger(request):
     response = HttpResponse("logger")
     return response
+
 
 @csrf_exempt
 def distributed_read(request):
@@ -42,9 +53,11 @@ def distributed_read(request):
     return response
 
 
+@csrf_exempt
 def distributed_write(request):
     response = HttpResponse("distributed_write")
     return response
+
 
 @csrf_exempt
 def alert(request):
