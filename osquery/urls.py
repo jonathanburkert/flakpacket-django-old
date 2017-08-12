@@ -18,10 +18,10 @@ from django.contrib import admin
 from . import views
 
 urlpatterns = [
-    url(r'^enroll/', views.enroll),
-    url(r'^config/', views.config),
-    url(r'^logger/', views.logger),
-    url(r'^distributed_read/', views.distributed_read),
-    url(r'^distributed_write/', views.distributed_write),
-    url(r'^alert/', views.alert),
+    url(r'^enroll/?', views.enroll),
+    url(r'^config/?', views.config),
+    url(r'^logger/?', views.logger),
+    url(r'^distributed_read/?', views.distributed_read),
+    url(r'^distributed_write/?', views.distributed_write),
+    url(r'^alert/?', views.alert),
 ]
