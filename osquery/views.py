@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .settings import *
 from .osqueryResponses import *
-from . import enroll
+from .enroll import generate_node_key
 import json
 
 # Create your views here.
@@ -20,7 +20,7 @@ def enroll(request):
     if not enroll_secret or enroll_secret != ENROLL_SECRET:
         return JsonResponse(FAILED_ENROLL_RESPONSE)
 
-    node_key = enroll.generate(address)
+    node_key = generate_node_key(address)
     response = ENROLL_RESPONSE
     response['node_key'] = node_key
 

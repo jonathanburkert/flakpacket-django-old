@@ -1,16 +1,17 @@
 # Enroll endpoint functions
+from osquery.models import enrolled_nodes
+import random
 
-def generate(address):
+def generate_node_key(address):
 
-    record = None
-    # Need to do DB lookup to see if node already
-    # has a key
+    record = enrolled_nodes.objects.filter(address=address)
 
     if record:
-        return record['node_key']
+        return record[0].node_key
     else:
         node_key = str(random.randrange(1000000000, 9999999999))
-        # Need to insert node_key / address into DB
+        record = enrolled_nodes(address=address, node_key=node_key)
+        record.save()
         return node_key
 
 
