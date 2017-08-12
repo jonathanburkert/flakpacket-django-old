@@ -1,0 +1,58 @@
+src_ip = '1.2.3.4'
+src_port = '12'
+dest_ip = '2.3.4.5'
+dest_port = '23'
+uid = '123456789'
+
+
+# ALERT
+
+192.168.254.68:8000/osquery/alert
+
+{
+	"src_ip": "1.2.3.4",
+	"src_port": "12",
+	"dest_ip": "2.3.4.5",
+	"dest_port": "23",
+	"uid": "123345",
+	"secret": "password"
+}
+
+
+#ENROLL
+
+192.168.254.68:8000/osquery/enroll
+
+{
+	"enroll_secret": "password"
+}
+
+{"node_key": "9288424217", "node_invalid": false}
+
+
+# DIST READ
+
+192.168.254.68:8000/osquery/distributed_read
+
+#response
+{"node_key": "6412615100"}
+
+
+# LOGGER
+
+192.168.254.68:8000/osquery/logger
+
+{
+    "node_key": "1563718837", 
+    "log_type": "result",
+    "data": [ 
+    	{
+    		"snapshot": [ 
+    			{"type": "test", "stuff": "other"}, 
+    			{"type": "test", "stuff": "cool"}, 
+    			{"type": "test", "stuff": "jon"}
+    		]
+    	}	
+    
+    ]
+}

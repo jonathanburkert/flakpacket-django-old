@@ -1,0 +1,16 @@
+--tls_hostname=<flakpacket server>:<port>
+--tls_server_certs=<path to certificate>/certificate.crt
+--enroll_secret_path=<path to secret>/osquery.secret
+--enroll_tls_endpoint=/flakpacket/osquery/enroll
+
+--distributed_tls_read_endpoint=/flakpacket/osquery/distributed_read
+--distributed_tls_write_endpoint=/flakpacket/osquery/distributed_write
+--disable_distributed=false
+--distributed_interval=5
+--distributed_plugin=tls
+
+#--config_plugin=tls
+#--config_refresh=5
+#--config_tls_endpoint=/flakpacket/osquery/config
+#--logger_plugin=tls
+#--logger_tls_endpoint=/flakpacket/osquery/logger

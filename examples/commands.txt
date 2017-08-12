@@ -1,0 +1,8 @@
+# Creating certificates
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout private.key -out certificate.crt
+
+# CLI to start web2py
+./web2py.py -c certs/certificate.crt -k certs/private.key
+
+# CLI to start osqueryd
+osqueryd --flagfile /etc/osquery/osquery.flags --verbose

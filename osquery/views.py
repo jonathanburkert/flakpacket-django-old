@@ -43,8 +43,26 @@ def config(request):
 
 @csrf_exempt
 def logger(request):
-    response = HttpResponse("logger")
-    return response
+
+    address = request.META.get('REMOTE_ADDR')
+    data = request.body.decode('utf-8')
+    json_data = json.loads(data)
+    results = json_data.get('data')
+    log_type = json_data.get('log_type')
+    node_key = json_data.get('node_key')
+
+    if not validate_node_key(address, node_key):
+        return JsonResponse(FAILED_ENROLL_RESPONSE)
+
+    if results and log_type == 'result':
+        with open(LOG_OUTPUT_FILE, 'a') as f:
+            for result in results:
+                logs = result['snapshot']
+                for log in logs:
+                    log['address'] = address
+                    f.write(json.dumps(log) + '\n')
+
+    return JsonResponse(EMPTY_RESPONSE)
 
 
 @csrf_exempt
