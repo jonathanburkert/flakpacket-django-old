@@ -30,9 +30,9 @@ def enroll(request):
 @csrf_exempt
 def config(request):
 
-    address = request.META.get('REMOTE_ADDR')
     data = request.body.decode('utf-8')
     json_data = json.loads(data)
+    address = request.META.get('REMOTE_ADDR')
     node_key = json_data.get('node_key')
 
     if not validate_node_key(address, node_key):
@@ -44,9 +44,9 @@ def config(request):
 @csrf_exempt
 def logger(request):
 
-    address = request.META.get('REMOTE_ADDR')
     data = request.body.decode('utf-8')
     json_data = json.loads(data)
+    address = request.META.get('REMOTE_ADDR')
     results = json_data.get('data')
     log_type = json_data.get('log_type')
     node_key = json_data.get('node_key')
@@ -68,9 +68,9 @@ def logger(request):
 @csrf_exempt
 def distributed_read(request):
 
-    address = request.META.get('REMOTE_ADDR')
     data = request.body.decode('utf-8')
     json_data = json.loads(data)
+    address = request.META.get('REMOTE_ADDR')
     node_key = json_data.get('node_key')
 
     if not validate_node_key(address, node_key):
@@ -86,8 +86,37 @@ def distributed_read(request):
 
 @csrf_exempt
 def distributed_write(request):
-    response = HttpResponse("distributed_write")
-    return response
+
+    data = request.body.decode('utf-8')
+    json_data = json.loads(data)
+    address = request.META.get('REMOTE_ADDR')
+    node_key = json_data.get('node_key')
+    results = json_data.get('queries')
+    if results:
+        queries = results.keys()
+    else:
+        queries = []
+
+
+    if not validate_node_key(address, node_key):
+        return JsonResponse(FAILED_ENROLL_RESPONSE)
+
+    with open(LOG_OUTPUT_FILE, 'a') as f:
+        for query in queries:
+            if results[query] and len(results[query][0]):
+
+                result_type = query.split('|')[0]
+                direction = query.split('|')[1]
+                uid = query.split('|')[2]
+
+                if result_type == 'alert':
+                    update_elastic(direction, uid, results[query][0])
+                else:
+                    for result in results[query]:
+                        result['address'] = address
+                        f.write(json.dumps(result) + '\n')
+
+    return JsonResponse(EMPTY_RESPONSE)
 
 
 @csrf_exempt
@@ -99,7 +128,7 @@ def alert(request):
     src_port = json_data.get('src_port')
     dest_ip = json_data.get('dest_ip')
     dest_port = json_data.get('dest_port')
-    uid = json_data.get('uid')
+    uid = json_data.get('alert_uid')
     secret = json_data.get('secret')
     enrolled_nodes = get_enrolled_nodes()
 

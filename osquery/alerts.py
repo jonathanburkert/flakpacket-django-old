@@ -2,6 +2,7 @@
 
 from osquery.models import alerts
 from .osqueryResponses import *
+from .settings import *
 
 def check_alerts(address, alert_query):
 
@@ -9,9 +10,11 @@ def check_alerts(address, alert_query):
     dest_alerts = alerts.objects.filter(dest_ip=address)
 
     for row in src_alerts:
-        alert_query["queries"]["alert|src|" + row.uid] = PROC_PORT_QUERY.format(port=row.src_port)
+        fields = ', '.join(ALERT_UPDATE_FIELDS)
+        alert_query["queries"]["alert|src|" + row.uid] = PROC_PORT_QUERY.format(port=row.src_port, fields=fields)
     for row in dest_alerts:
-        alert_query["queries"]["alert|dest|" + row.uid] = PROC_PORT_QUERY.format(port=row.dest_port)
+        fields = ', '.join(ALERT_UPDATE_FIELDS)
+        alert_query["queries"]["alert|dest|" + row.uid] = PROC_PORT_QUERY.format(port=row.dest_port, fields=fields)
 
     src_alerts.delete()
     dest_alerts.delete()
@@ -19,19 +22,22 @@ def check_alerts(address, alert_query):
     return alert_query
 
 
-def update_elastic(query, results):
-    pass
+def update_elastic(direction, uid, results):
 
-    '''
     import elasticsearch, time
 
-    es = elasticsearch.Elasticsearch(ES_CONN_STRING)
-    direction = query.split('|')[1]
-    alert_uid = query.split('|')[2]
-    body = {"doc":{direction + "_cmdline": results["cmdline"], direction + "_pid": results["pid"]}}
+    #es = elasticsearch.Elasticsearch(ES_CONN_STRING)
+    body = {"doc":{}}
 
+    for field in ALERT_UPDATE_FIELDS:
+        field = field.split('.')[1]
+        body['doc'][direction + '_' + field] = results[field]
+
+    print(body)
+
+    '''
     for i in (range(3)):
-        alert = es.search(q="alert_uid: {}".format(alert_uid))
+        alert = es.search(q="alert_uid: {}".format(uid))
         if len(alert['hits']['hits']):
             alert = alert['hits']['hits'][0]
             es.update(index=alert['_index'], doc_type=alert['_type'], id=alert['_id'], body=body)

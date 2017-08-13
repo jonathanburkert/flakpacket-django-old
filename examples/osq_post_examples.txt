@@ -27,15 +27,17 @@ uid = '123456789'
 	"enroll_secret": "password"
 }
 
-{"node_key": "9288424217", "node_invalid": false}
+# response
+{"node_key": "1563718837", "node_invalid": false}
 
 
 # DIST READ
 
 192.168.254.68:8000/osquery/distributed_read
 
-#response
-{"node_key": "6412615100"}
+{
+    "node_key": "1563718837"
+}
 
 
 # LOGGER
@@ -48,11 +50,26 @@ uid = '123456789'
     "data": [ 
     	{
     		"snapshot": [ 
-    			{"type": "test", "stuff": "other"}, 
-    			{"type": "test", "stuff": "cool"}, 
-    			{"type": "test", "stuff": "jon"}
+    			{"cmdline":"init","parent":"0","pid":"1","uid":"0"}
     		]
     	}	
     
     ]
 }
+
+
+# DIST WRITE
+
+192.168.254.68:8000/osquery/distributed_write
+
+{
+    "node_key": "1563718837",
+    "queries": {
+    	"alert|src|123": [
+    		{"cmdline":"init","parent":"0","pid":"1","uid":"0"}
+    	]
+    }
+}
+
+
+

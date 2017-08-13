@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1a5c92cf-d2c4-4fbb-ae76-8aa24bc8abff" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/osquery/alerts.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/osquery/enroll.py" afterPath="$PROJECT_DIR$/osquery/enroll.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/osquery/models.py" afterPath="$PROJECT_DIR$/osquery/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/examples/osq_post_examples.txt" afterPath="$PROJECT_DIR$/examples/osq_post_examples.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/osquery/alerts.py" afterPath="$PROJECT_DIR$/osquery/alerts.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/osquery/osqueryResponses.py" afterPath="$PROJECT_DIR$/osquery/osqueryResponses.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/osquery/settings.py" afterPath="$PROJECT_DIR$/osquery/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/osquery/views.py" afterPath="$PROJECT_DIR$/osquery/views.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -23,15 +23,14 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/osquery/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+            <state relative-caret-position="473">
+              <caret line="104" column="29" lean-forward="false" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="29" />
               <folding>
-                <element signature="e#0#36#0" expanded="true" />
                 <element signature="e#388#811#0" expanded="false" />
                 <element signature="e#853#1153#0" expanded="false" />
                 <element signature="e#1195#1865#0" expanded="false" />
-                <element signature="e#2411#2475#0" expanded="false" />
-                <element signature="e#2516#3179#0" expanded="false" />
+                <element signature="e#1917#2360#0" expanded="false" />
+                <element signature="e#3440#4109#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -40,8 +39,8 @@
       <file leaf-file-name="alerts.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/osquery/alerts.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+            <state relative-caret-position="613">
+              <caret line="35" column="15" lean-forward="false" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
               <folding>
                 <element signature="e#19#52#0" expanded="true" />
               </folding>
@@ -53,7 +52,7 @@
         <entry file="file://$PROJECT_DIR$/osquery/enroll.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="460">
-              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding>
                 <element signature="e#28#69#0" expanded="true" />
                 <element signature="e#466#623#0" expanded="false" />
@@ -66,7 +65,17 @@
         <entry file="file://$PROJECT_DIR$/osquery/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
-              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/osquery/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -75,8 +84,8 @@
       <file leaf-file-name="osqueryResponses.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/osquery/osqueryResponses.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+            <state relative-caret-position="680">
+              <caret line="34" column="24" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="158" />
               <folding />
             </state>
           </provider>
@@ -95,6 +104,7 @@
     <findStrings>
       <find>enroll.</find>
       <find>print</find>
+      <find>alert_uid</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,14 +116,14 @@
         <option value="$PROJECT_DIR$/flakpacket/urls.py" />
         <option value="$PROJECT_DIR$/osquery/urls.py" />
         <option value="$PROJECT_DIR$/osquery/variables.py" />
-        <option value="$PROJECT_DIR$/osquery/settings.py" />
-        <option value="$PROJECT_DIR$/osquery/osqueryResponses.py" />
         <option value="$PROJECT_DIR$/osquery/osqueryFunctions.py" />
         <option value="$PROJECT_DIR$/flakpacket/settings.py" />
         <option value="$PROJECT_DIR$/osquery/enroll.py" />
         <option value="$PROJECT_DIR$/osquery/models.py" />
-        <option value="$PROJECT_DIR$/osquery/views.py" />
+        <option value="$PROJECT_DIR$/osquery/osqueryResponses.py" />
         <option value="$PROJECT_DIR$/osquery/alerts.py" />
+        <option value="$PROJECT_DIR$/osquery/views.py" />
+        <option value="$PROJECT_DIR$/osquery/settings.py" />
       </list>
     </option>
   </component>
@@ -299,7 +309,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6091174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2598684" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53289473" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -329,12 +339,11 @@
         <state relative-caret-position="860">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
             <element signature="e#388#811#0" expanded="false" />
             <element signature="e#853#1153#0" expanded="false" />
             <element signature="e#1195#1865#0" expanded="false" />
-            <element signature="e#2411#2475#0" expanded="false" />
-            <element signature="e#2516#3179#0" expanded="false" />
+            <element signature="e#1917#2360#0" expanded="false" />
+            <element signature="e#3440#4109#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -389,12 +398,11 @@
         <state relative-caret-position="140">
           <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
             <element signature="e#388#811#0" expanded="false" />
             <element signature="e#853#1153#0" expanded="false" />
             <element signature="e#1195#1865#0" expanded="false" />
-            <element signature="e#2411#2475#0" expanded="false" />
-            <element signature="e#2516#3179#0" expanded="false" />
+            <element signature="e#1917#2360#0" expanded="false" />
+            <element signature="e#3440#4109#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -433,12 +441,11 @@
         <state relative-caret-position="640">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
             <element signature="e#388#811#0" expanded="false" />
             <element signature="e#853#1153#0" expanded="false" />
             <element signature="e#1195#1865#0" expanded="false" />
-            <element signature="e#2411#2475#0" expanded="false" />
-            <element signature="e#2516#3179#0" expanded="false" />
+            <element signature="e#1917#2360#0" expanded="false" />
+            <element signature="e#3440#4109#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -515,12 +522,11 @@
         <state relative-caret-position="520">
           <caret line="44" column="20" lean-forward="true" selection-start-line="44" selection-start-column="20" selection-end-line="46" selection-end-column="19" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
             <element signature="e#388#811#0" expanded="false" />
             <element signature="e#853#1153#0" expanded="false" />
             <element signature="e#1195#1865#0" expanded="false" />
-            <element signature="e#2411#2475#0" expanded="false" />
-            <element signature="e#2516#3179#0" expanded="false" />
+            <element signature="e#1917#2360#0" expanded="false" />
+            <element signature="e#3440#4109#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -548,12 +554,11 @@
         <state relative-caret-position="140">
           <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
             <element signature="e#388#811#0" expanded="false" />
             <element signature="e#853#1153#0" expanded="false" />
             <element signature="e#1195#1865#0" expanded="false" />
-            <element signature="e#2411#2475#0" expanded="false" />
-            <element signature="e#2516#3179#0" expanded="false" />
+            <element signature="e#1917#2360#0" expanded="false" />
+            <element signature="e#3440#4109#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -591,12 +596,11 @@
         <state relative-caret-position="640">
           <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
             <element signature="e#388#811#0" expanded="false" />
             <element signature="e#853#1153#0" expanded="false" />
             <element signature="e#1195#1865#0" expanded="false" />
-            <element signature="e#2411#2475#0" expanded="false" />
-            <element signature="e#2516#3179#0" expanded="false" />
+            <element signature="e#1917#2360#0" expanded="false" />
+            <element signature="e#3440#4109#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -605,13 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/flakpacket/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
         </state>
       </provider>
     </entry>
@@ -632,18 +629,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/osquery/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/osquery/enroll.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
-          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
             <element signature="e#28#69#0" expanded="true" />
             <element signature="e#466#623#0" expanded="false" />
@@ -654,38 +643,53 @@
     <entry file="file://$PROJECT_DIR$/osquery/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flakpacket/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="44" lean-forward="false" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/osquery/osqueryResponses.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        <state relative-caret-position="680">
+          <caret line="34" column="24" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="158" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/osquery/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/osquery/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="93" column="19" lean-forward="false" selection-start-line="93" selection-start-column="19" selection-end-line="93" selection-end-column="19" />
+        <state relative-caret-position="473">
+          <caret line="104" column="29" lean-forward="false" selection-start-line="104" selection-start-column="29" selection-end-line="104" selection-end-column="29" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
             <element signature="e#388#811#0" expanded="false" />
             <element signature="e#853#1153#0" expanded="false" />
             <element signature="e#1195#1865#0" expanded="false" />
-            <element signature="e#2411#2475#0" expanded="false" />
-            <element signature="e#2516#3179#0" expanded="false" />
+            <element signature="e#1917#2360#0" expanded="false" />
+            <element signature="e#3440#4109#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/osquery/alerts.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state relative-caret-position="613">
+          <caret line="35" column="15" lean-forward="false" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
           <folding>
             <element signature="e#19#52#0" expanded="true" />
           </folding>
