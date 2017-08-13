@@ -23,3 +23,8 @@ def validate_node_key(address, node_key):
         return True
     else:
         return False
+
+
+def get_enrolled_nodes():
+
+    return [row.address for row in enrolled_nodes.objects.all()]

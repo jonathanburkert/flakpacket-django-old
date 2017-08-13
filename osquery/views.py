@@ -1,13 +1,13 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from .settings import *
 from .osqueryResponses import *
-from .enroll import generate_node_key, validate_node_key
+from .enroll import generate_node_key, validate_node_key, get_enrolled_nodes
+from .alerts import check_alerts, update_elastic
 import json
+from copy import deepcopy
 
-# Create your views here.
 
 @csrf_exempt
 def enroll(request):
@@ -67,9 +67,22 @@ def logger(request):
 
 @csrf_exempt
 def distributed_read(request):
-    response = HttpResponse("distributed_read")
-    return response
 
+    address = request.META.get('REMOTE_ADDR')
+    data = request.body.decode('utf-8')
+    json_data = json.loads(data)
+    node_key = json_data.get('node_key')
+
+    if not validate_node_key(address, node_key):
+        return JsonResponse(FAILED_ENROLL_RESPONSE)
+
+    query = deepcopy(DIST_QUERY)
+    query = check_alerts(address, query)
+
+    if not len(query['queries']):
+        return JsonResponse(EMPTY_RESPONSE)
+
+    return JsonResponse(query)
 
 @csrf_exempt
 def distributed_write(request):
@@ -79,5 +92,24 @@ def distributed_write(request):
 
 @csrf_exempt
 def alert(request):
-    response = HttpResponse("alert")
-    return response
+
+    data = request.body.decode('utf-8')
+    json_data = json.loads(data)
+    src_ip = json_data.get('src_ip')
+    src_port = json_data.get('src_port')
+    dest_ip = json_data.get('dest_ip')
+    dest_port = json_data.get('dest_port')
+    uid = json_data.get('uid')
+    secret = json_data.get('secret')
+    enrolled_nodes = get_enrolled_nodes()
+
+    if not secret == LOGSTASH_SECRET or \
+            (not src_ip in enrolled_nodes and not dest_ip in enrolled_nodes):
+        return None
+
+    from osquery.models import alerts
+
+    alert = alerts(src_ip=src_ip, src_port=src_port, dest_ip=dest_ip, dest_port=dest_port, uid=uid)
+    alert.save()
+
+    return HttpResponse()
