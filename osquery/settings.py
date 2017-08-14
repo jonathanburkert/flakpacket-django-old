@@ -4,7 +4,7 @@ LOGSTASH_SECRET = "password"
 
 # Elasticsearch
 ES_PORT = "9200"
-ES_IP = "192.168.1.85"
+ES_IP = "localhost"
 ES_CONN_STRING = ["{}:{}".format(ES_IP, ES_PORT)]
 
 # Logging

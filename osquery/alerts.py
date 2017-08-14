@@ -26,16 +26,13 @@ def update_elastic(direction, uid, results):
 
     import elasticsearch, time
 
-    #es = elasticsearch.Elasticsearch(ES_CONN_STRING)
+    es = elasticsearch.Elasticsearch(ES_CONN_STRING)
     body = {"doc":{}}
 
     for field in ALERT_UPDATE_FIELDS:
         field = field.split('.')[1]
         body['doc'][direction + '_' + field] = results[field]
 
-    print(body)
-
-    '''
     for i in (range(3)):
         alert = es.search(q="alert_uid: {}".format(uid))
         if len(alert['hits']['hits']):
@@ -44,4 +41,3 @@ def update_elastic(direction, uid, results):
             break
         else:
             time.sleep(2)
-    '''

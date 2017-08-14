@@ -32,4 +32,4 @@ DIST_QUERY = {
     "snapshot": "true"
 }
 
-PROC_PORT_QUERY = 'SELECT DISTINCT {fields} FROM processes AS p JOIN process_open_sockets AS l ON p.pid = l.pid WHERE listening.local_port == {port} LIMIT 1;'
+PROC_PORT_QUERY = 'SELECT DISTINCT {fields} FROM processes AS p JOIN process_open_sockets AS l ON p.pid = l.pid WHERE l.local_port == {port} LIMIT 1;'

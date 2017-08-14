@@ -110,6 +110,7 @@ def distributed_write(request):
                 uid = query.split('|')[2]
 
                 if result_type == 'alert':
+                    print(results[query][0])
                     update_elastic(direction, uid, results[query][0])
                 else:
                     for result in results[query]:
@@ -138,7 +139,11 @@ def alert(request):
 
     from osquery.models import alerts
 
+    alerts.objects.all().delete()
+
     alert = alerts(src_ip=src_ip, src_port=src_port, dest_ip=dest_ip, dest_port=dest_port, uid=uid)
     alert.save()
 
-    return HttpResponse()
+    print(alerts.objects.all())
+
+    return JsonResponse(EMPTY_RESPONSE)
